@@ -67,3 +67,29 @@ const filtrarConcluidas = () => {
     const tarefasConcluidas = tarefas.filter(tarefa => tarefa.concluida);
     atualizarLista(tarefasConcluidas);
 };
+
+//ATUALIZANDO  LISTA DE TAREFAS
+const atualizarLista = (listaTarefas = tarefas) => {
+    // atualiza a lista e alterando o HTML para criar os itens da lista
+    const lista = document.getElementById("lista-tarefas");
+    lista.innerHTML = "";
+    
+    //forEach para criar tarefas em uma nova lista
+    listaTarefas.forEach(tarefa => {
+        const li = document.createElement("li");
+        li.textContent = tarefa.titulo;
+
+    //adição  do botao de concluir ao lado de cada tarefa adicionada
+
+        if (!tarefa.concluida) {
+            const botaoConcluir = document.createElement("button");
+            botaoConcluir.textContent = "Concluir";
+            botaoConcluir.addEventListener("click", () => concluirTarefa(tarefa.id));
+            li.appendChild(botaoConcluir);
+        } else { 
+            li.style.textDecoration = "line-through";
+        }
+        
+        lista.appendChild(li);
+    }); 
+};
