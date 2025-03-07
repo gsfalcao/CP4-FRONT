@@ -93,3 +93,29 @@ const atualizarLista = (listaTarefas = tarefas) => {
         lista.appendChild(li);
     }); 
 };
+document.getElementById("btnAdicionar").addEventListener("click", () => {
+    // adiciona o evento de click no botao para adicionar a tarefa
+    const input = document.getElementById("idTarefa");
+    // if para remover espaços extras e verificar se algo foi digitado 
+    if (input.value.trim()) {
+        adicionarTarefa(input.value.trim());
+        input.value = "";
+    }
+
+});
+
+//Clique 
+
+//clique para filtrar as pendentes
+document.getElementById("filtrar-pendentes").addEventListener("click", filtrarPendentes);
+
+
+//clique para mostrar todas
+document.getElementById("mostrar-todas").addEventListener("click", () => atualizarLista());
+
+
+//clique para filtrar as tarefas concluidas
+document.getElementById("filtrar-concluidas").addEventListener("click", filtrarConcluidas);
+
+//manipulação do DOM para ativar a função de atualizar a lista e criar ela
+document.addEventListener("DOMContentLoaded", () => atualizarLista(tarefas));
