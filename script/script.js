@@ -29,3 +29,27 @@ const adicionarTarefa = (titulo) => {
     
     alert(`Tarefa adicionada com sucesso! Total de tarefas concluídas: ${totalConcluidas}`);
 };
+
+
+const concluirTarefa = (id) => {
+    // Localiza a tarefa e altera o False das tarefas para True
+    tarefas = tarefas.map(tarefa =>
+        tarefa.id === id ? { ...tarefa, concluida: true } : tarefa
+    );
+
+    //Find para pegar titulo e id da tarefa e analisá-la
+    const tarefaConcluida = tarefas.find(tarefa => tarefa.id === id);
+    
+    if (tarefaConcluida) {
+        const { titulo, concluida } = tarefaConcluida;
+        alert(`Tarefa concluída - Título: ${titulo}, Status: ${concluida}`);
+    }
+
+    //  Map para criar uma nova lista com títulos em maiúsculas
+    const titulosMaiusculos = tarefas.map(tarefa => tarefa.titulo.toUpperCase());
+    
+    // Exibe lista de títulos em maiúsculas no console
+    console.log("Títulos das Tarefas (Maiúsculas):", titulosMaiusculos);
+
+    atualizarLista(tarefas);
+};
