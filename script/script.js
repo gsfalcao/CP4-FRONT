@@ -119,3 +119,6 @@ document.getElementById("filtrar-concluidas").addEventListener("click", filtrarC
 
 //manipulação do DOM para ativar a função de atualizar a lista e criar ela
 document.addEventListener("DOMContentLoaded", () => atualizarLista(tarefas));
+
+
+//gsfalcao
