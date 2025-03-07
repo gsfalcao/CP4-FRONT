@@ -53,3 +53,17 @@ const concluirTarefa = (id) => {
 
     atualizarLista(tarefas);
 };
+
+//FILTROS
+
+const filtrarPendentes = () => {
+    //filtra as tarefas que nao foram alteradas para True ou seja tarefas que ainda nao foram concluidas
+    const tarefasPendentes = tarefas.filter(tarefa => !tarefa.concluida);
+    atualizarLista(tarefasPendentes);
+}
+
+const filtrarConcluidas = () => {
+    //filtra as tarefas concluidas para modifica-las na lista e ficar com mais facil vizualização
+    const tarefasConcluidas = tarefas.filter(tarefa => tarefa.concluida);
+    atualizarLista(tarefasConcluidas);
+};
